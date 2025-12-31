@@ -1,0 +1,8 @@
+export const MobileMenuToggle = () => {
+  return (
+    <div className="relative text-[12.5261px] items-center bg-fuchsia-300 box-border caret-transparent flex shrink-0 h-[43.8413px] justify-center leading-[18.7891px] min-h-[auto] min-w-[auto] w-[43.8413px] z-[1000] rounded-[9.39457px] md:static md:text-[10.6667px] md:[align-items:normal] md:bg-transparent md:hidden md:shrink md:h-auto md:justify-normal md:leading-4 md:min-h-0 md:min-w-0 md:w-auto md:z-auto md:rounded-none hover:text-neutral-900 hover:bg-fuchsia-400 hover:shadow-none hover:outline-offset-0 hover:outline-0 hover:no-underline hover:decoration-solid hover:decoration-auto hover:border-neutral-900 hover:rounded-[9.39457px] hover:border-0 hover:border-none">
+      <div className="absolute text-[12.5261px] bg-neutral-900 box-border caret-transparent h-0.5 leading-[18.7891px] -translate-y-1 w-5 z-[1] md:static md:text-[10.6667px] md:bg-transparent md:h-auto md:leading-4 md:transform-none md:w-auto md:z-auto hover:text-neutral-900 hover:bg-neutral-900 hover:shadow-none hover:outline-offset-0 hover:outline-0 hover:no-underline hover:decoration-solid hover:decoration-auto hover:border-neutral-900 hover:rounded-none hover:border-0 hover:border-none"></div>
+      <div className="absolute text-[12.5261px] bg-neutral-900 box-border caret-transparent h-0.5 leading-[18.7891px] translate-y-1 w-5 z-[1] md:static md:text-[10.6667px] md:bg-transparent md:h-auto md:leading-4 md:transform-none md:w-auto md:z-auto hover:text-neutral-900 hover:bg-neutral-900 hover:shadow-none hover:outline-offset-0 hover:outline-0 hover:no-underline hover:decoration-solid hover:decoration-auto hover:border-neutral-900 hover:rounded-none hover:border-0 hover:border-none"></div>
+    </div>
+  );
+};

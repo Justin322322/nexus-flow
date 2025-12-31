@@ -1,0 +1,71 @@
+import { IntroVideo } from "@/section/IntroSection/components/IntroVideo";
+
+export const IntroSection = () => {
+  return (
+    <div className="box-border caret-transparent py-16 md:py-24 lg:py-32">
+      <div className="box-border caret-transparent w-full px-6 md:px-10 lg:px-16">
+        <div className="box-border caret-transparent max-w-full w-full mx-auto md:max-w-screen-2xl">
+          <div className="box-border caret-transparent flex basis-[0%] flex-col grow auto-cols-[1fr] grid-cols-[1fr_1fr_1fr_1fr_1fr] grid-rows-[auto] gap-y-0 w-full md:grid md:flex-row md:grid-cols-[1fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr] md:gap-y-[normal]">
+            <div className="box-border caret-transparent col-end-13 col-start-1 row-end-2 row-start-1 mb-12 md:col-end-12 md:col-start-1 md:mb-20">
+              <h2 className="text-[36px] font-semibold box-border caret-transparent tracking-[-1.5px] leading-[1.1] md:text-[64px] lg:text-[80px] md:tracking-[-3px] lg:tracking-[-4px]">
+                We connect you with elite Filipino virtual assistants. From admin tasks to video editing, development to customer support. Your dedicated team, ready to deliver.
+              </h2>
+            </div>
+            <IntroVideo />
+            <div className="box-border caret-transparent block min-h-[auto] min-w-[auto] md:hidden md:min-h-0 md:min-w-0">
+              <div className="box-border caret-transparent pb-12 md:pb-20"></div>
+            </div>
+            <div className="items-start self-center box-border caret-transparent gap-x-6 flex flex-col col-end-13 col-start-1 row-end-4 row-start-3 justify-start gap-y-6 md:self-end md:gap-x-6 md:col-end-10 md:col-start-5 md:row-end-2 md:row-start-2 md:gap-y-6">
+              <p className="text-[22px] font-semibold box-border caret-transparent tracking-[-0.7px] leading-[1.4] md:text-[28px] lg:text-[32px] md:tracking-[-1px] lg:tracking-[-1.2px]">
+                We don't just fill positions. We match you with pre-vetted professionals who understand your business. Save up to 70% on labor costs while getting world-class talent.
+              </p>
+              <div className="box-border caret-transparent flex ml-0 md:ml-[-10.6667px]">
+                <a
+                  href="/about"
+                  className="relative text-lg font-semibold content-center items-center box-border caret-transparent flex justify-center tracking-[-0.4px] max-w-full translate-x-[-16px] z-[1] md:text-xl md:tracking-[-0.5px] md:transform-none"
+                >
+                  <div className="relative items-center box-border caret-transparent flex h-14 justify-center pl-5 py-4 md:h-16 md:pl-6">
+                    <span className="absolute self-center bg-orange-50 box-border caret-transparent block h-full justify-self-center w-[calc(100%_-_10px)] z-[-1] border border-neutral-900 rounded-xl border-solid md:w-[calc(100%_-_12px)] md:rounded-2xl"></span>
+                    <span className="box-border caret-transparent block text-nowrap ml-2 mr-4 md:ml-3 md:mr-5">
+                      Learn more
+                    </span>
+                    <div className="relative text-orange-50 items-center bg-neutral-900 box-border caret-transparent flex shrink-0 h-11 justify-center w-11 rounded-xl md:h-14 md:w-14 md:rounded-2xl">
+                      <svg className="h-5 md:h-6 text-current" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <line x1="7" y1="17" x2="17" y2="7" />
+                        <polyline points="7 7 17 7 17 17" />
+                      </svg>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div className="self-end box-border caret-transparent hidden col-end-13 col-start-12 row-end-2 row-start-1 justify-self-end min-h-0 min-w-0 md:block md:col-end-12 md:col-start-11 md:row-start-2 md:min-h-[auto] md:min-w-[auto]">
+              <a
+                href="#expertises"
+                className="relative text-lg font-semibold content-center items-center box-border caret-transparent flex justify-center tracking-[-0.4px] max-w-full z-[1] md:text-xl md:tracking-[-0.5px]"
+              >
+                <div className="relative items-center box-border caret-transparent flex flex-col shrink-0 h-14 justify-end min-h-0 min-w-0 w-14 md:h-16 md:min-h-[auto] md:min-w-[auto] md:w-16">
+                  <span className="absolute self-center box-border caret-transparent block h-full justify-self-center w-full z-[-1] border border-neutral-900 rounded-xl border-solid md:rounded-2xl"></span>
+                  <div className="items-center box-border caret-transparent flex flex-col h-full justify-end min-h-0 min-w-0 w-full overflow-hidden md:min-h-[auto] md:min-w-[auto]">
+                    <div className="items-center box-border caret-transparent flex shrink-0 h-full justify-center min-h-0 min-w-0 w-full md:min-h-[auto] md:min-w-[auto]">
+                      <svg className="relative text-orange-600 h-5 w-5 md:h-6 md:w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <line x1="12" y1="5" x2="12" y2="19" />
+                        <polyline points="19 12 12 19 5 12" />
+                      </svg>
+                    </div>
+                    <div className="items-center box-border caret-transparent flex shrink-0 h-full justify-center min-h-0 min-w-0 w-full md:min-h-[auto] md:min-w-[auto]">
+                      <svg className="relative text-orange-600 h-5 w-5 md:h-6 md:w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <line x1="12" y1="5" x2="12" y2="19" />
+                        <polyline points="19 12 12 19 5 12" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
