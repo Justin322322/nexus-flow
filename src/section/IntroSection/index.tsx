@@ -1,14 +1,110 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { IntroVideo } from "@/section/IntroSection/components/IntroVideo";
 
+gsap.registerPlugin(ScrollTrigger);
+
+// Role highlights configuration with plugin classes
+const roleHighlights = [
+  { text: "admin tasks", color: "highlight-orange-400", variant: "highlight-variant-1" },
+  { text: "video editing", color: "highlight-purple-500", variant: "highlight-variant-1" },
+  { text: "development", color: "highlight-green-500", variant: "highlight-variant-1" },
+  { text: "customer support", color: "highlight-sky-500", variant: "highlight-variant-1" },
+];
+
 export const IntroSection = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const highlightsRef = useRef<(HTMLElement | null)[]>([]);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    const highlights = highlightsRef.current.filter(Boolean) as HTMLElement[];
+    if (!section || highlights.length === 0) return;
+
+    const ctx = gsap.context(() => {
+      // Set initial state - hide all highlights
+      highlights.forEach((highlight) => {
+        gsap.set(highlight, { "--tw-highlight-progress": 0 });
+      });
+
+      // Create a timeline for the highlight animations
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: "top 80%",
+          end: "top 20%",
+          scrub: 1, // Smooth scrubbing tied to scroll
+        },
+      });
+
+      // Animate each highlight sequentially across the scroll range
+      highlights.forEach((highlight, index) => {
+        tl.to(
+          highlight,
+          {
+            "--tw-highlight-progress": 100,
+            duration: 1,
+            ease: "none",
+          },
+          index * 0.8 // Stagger offset in timeline
+        );
+      });
+    }, section);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <div className="box-border caret-transparent py-16 md:py-24 lg:py-32">
+    <div ref={sectionRef} className="box-border caret-transparent py-16 md:py-24 lg:py-32">
       <div className="box-border caret-transparent w-full px-6 md:px-10 lg:px-16">
         <div className="box-border caret-transparent max-w-full w-full mx-auto md:max-w-screen-2xl">
           <div className="box-border caret-transparent flex basis-[0%] flex-col grow auto-cols-[1fr] grid-cols-[1fr_1fr_1fr_1fr_1fr] grid-rows-[auto] gap-y-0 w-full md:grid md:flex-row md:grid-cols-[1fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr] md:gap-y-[normal]">
             <div className="box-border caret-transparent col-end-13 col-start-1 row-end-2 row-start-1 mb-12 md:col-end-12 md:col-start-1 md:mb-20">
               <h2 className="text-[36px] font-semibold box-border caret-transparent tracking-[-1.5px] leading-[1.1] md:text-[64px] lg:text-[80px] md:tracking-[-3px] lg:tracking-[-4px]">
-                We connect you with elite Filipino virtual assistants. From admin tasks to video editing, development to customer support. Your dedicated team, ready to deliver.
+                We connect you with elite Filipino virtual assistants. From{" "}
+                <span
+                  ref={(el) => { highlightsRef.current[0] = el; }}
+                  className="highlight highlight-orange-400 highlight-variant-1 highlight-spread-sm"
+                >
+                  admin tasks
+                </span>{" "}
+                to{" "}
+                <span
+                  ref={(el) => { highlightsRef.current[1] = el; }}
+                  className="highlight highlight-purple-500 highlight-variant-1 highlight-spread-sm"
+                >
+                  video
+                </span>{" "}
+                <span
+                  ref={(el) => { highlightsRef.current[2] = el; }}
+                  className="highlight highlight-purple-500 highlight-variant-1 highlight-spread-sm"
+                >
+                  editing
+                </span>
+                ,{" "}
+                <span
+                  ref={(el) => { highlightsRef.current[3] = el; }}
+                  className="highlight highlight-green-500 highlight-variant-1 highlight-spread-sm"
+                >
+                  development
+                </span>{" "}
+                to{" "}
+                <span
+                  ref={(el) => { highlightsRef.current[4] = el; }}
+                  className="highlight highlight-sky-500 highlight-variant-1 highlight-spread-sm"
+                >
+                  customer
+                </span>{" "}
+                <span
+                  ref={(el) => { highlightsRef.current[5] = el; }}
+                  className="highlight highlight-sky-500 highlight-variant-1 highlight-spread-sm"
+                >
+                  support
+                </span>
+                . Your dedicated team, ready to deliver.
               </h2>
             </div>
             <IntroVideo />

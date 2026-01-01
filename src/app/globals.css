@@ -163,3 +163,10 @@
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
+
+
+@layer utilities {
+  .highlight::after {
+    clip-path: inset(0 calc((100 - var(--tw-highlight-progress, 100)) * 1%) 0 0);
+  }
+}
