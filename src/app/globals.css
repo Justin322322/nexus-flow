@@ -1,6 +1,8 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@plugin "tailwindcss-highlights";
+
+@config "../../tailwind.config.ts";
 
 @font-face {
   font-family: 'Inter';
@@ -163,7 +165,6 @@
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
-
 
 @layer utilities {
   .highlight::after {
