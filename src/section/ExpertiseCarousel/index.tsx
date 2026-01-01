@@ -137,7 +137,7 @@ export const ExpertiseCarousel = () => {
               ref={(el) => {
                 cardWrappersRef.current[i] = el;
               }}
-              className="relative w-full h-[85vh] max-h-[900px] will-change-transform"
+              className="relative w-full max-w-[1920px] mx-auto h-[85vh] max-h-[900px] will-change-transform"
               style={{
                 transformStyle: "preserve-3d",
                 transformOrigin: "center bottom",

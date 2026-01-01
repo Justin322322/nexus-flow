@@ -1,9 +1,20 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export const StatsCards = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const getTransform = (index: number, defaultRotate: string, defaultTranslateY: string) => {
     if (hoveredIndex === null) {
@@ -12,18 +23,17 @@ export const StatsCards = () => {
     if (hoveredIndex === index) {
       return `rotate(0deg) translateY(${defaultTranslateY}) scale(1.02)`;
     }
-    // Push cards away from hovered card
+    // Push cards away from hovered card only on desktop
     const direction = index < hoveredIndex ? -1 : 1;
-    const offset = direction * 200;
+    const offset = isMobile ? 0 : direction * 200;
     return `rotate(${defaultRotate}) translateY(${defaultTranslateY}) translateX(${offset}px)`;
   };
 
   const getZIndex = (index: number, defaultZ: number) => {
-    if (hoveredIndex === index) return 10;
     return defaultZ;
   };
 
-  const cardBase = "relative aspect-[4.8/6.2] overflow-hidden rounded-[48px] md:rounded-[64px] flex-1 max-w-[570px] transition-transform duration-500 ease-[cubic-bezier(0.34,1.2,0.64,1)] cursor-pointer will-change-transform";
+  const cardBase = "relative aspect-[3/4] md:aspect-[4.8/6.2] overflow-hidden rounded-[48px] md:rounded-[64px] flex-1 max-w-[570px] transition-transform duration-500 ease-[cubic-bezier(0.34,1.2,0.64,1)] cursor-pointer will-change-transform";
 
   return (
     <div className="flex justify-center w-full pt-8 md:pt-12 lg:pt-16 gap-0 max-w-[2400px] mx-auto">
@@ -35,11 +45,11 @@ export const StatsCards = () => {
         onMouseLeave={() => setHoveredIndex(null)}
       >
         <div className="flex flex-col h-full justify-between w-full p-6 md:p-10">
-          <div className="text-[clamp(56px,8vw,96px)] font-semibold tracking-[-0.04em] leading-[0.9]">500+</div>
+          <div className="text-[clamp(64px,12vw,96px)] font-semibold tracking-[-0.04em] leading-[0.9]">500+</div>
           <div className="flex flex-col gap-3 md:gap-4 w-full">
-            <h2 className="text-[clamp(18px,2.5vw,32px)] font-semibold tracking-[-0.02em] leading-tight">Skilled VAs</h2>
+            <h2 className="text-[clamp(20px,3.5vw,32px)] font-semibold tracking-[-0.02em] leading-tight">Skilled VAs</h2>
             <div className="bg-neutral-900 h-px w-full"></div>
-            <p className="text-[clamp(14px,2vw,20px)] font-medium tracking-[-0.01em] leading-snug max-w-[95%]">Pre-vetted Filipino professionals</p>
+            <p className="text-[clamp(16px,2.5vw,20px)] font-medium tracking-[-0.01em] leading-snug max-w-[95%]">Pre-vetted Filipino professionals</p>
           </div>
         </div>
       </div>
@@ -69,11 +79,11 @@ export const StatsCards = () => {
         onMouseLeave={() => setHoveredIndex(null)}
       >
         <div className="flex flex-col h-full justify-between w-full p-6 md:p-10">
-          <div className="text-[clamp(56px,8vw,96px)] font-semibold tracking-[-0.04em] leading-[0.9]">150+</div>
+          <div className="text-[clamp(64px,12vw,96px)] font-semibold tracking-[-0.04em] leading-[0.9]">150+</div>
           <div className="flex flex-col gap-3 md:gap-4 w-full">
-            <h2 className="text-[clamp(18px,2.5vw,32px)] font-semibold tracking-[-0.02em] leading-tight">Happy Clients</h2>
+            <h2 className="text-[clamp(20px,3.5vw,32px)] font-semibold tracking-[-0.02em] leading-tight">Happy Clients</h2>
             <div className="bg-neutral-900 h-px w-full"></div>
-            <p className="text-[clamp(14px,2vw,20px)] font-medium tracking-[-0.01em] leading-snug max-w-[95%]">From startups to enterprises</p>
+            <p className="text-[clamp(16px,2.5vw,20px)] font-medium tracking-[-0.01em] leading-snug max-w-[95%]">From startups to enterprises</p>
           </div>
         </div>
       </div>
